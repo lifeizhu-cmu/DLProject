@@ -21,10 +21,11 @@ Finally, residual networks use batch normalization, which speeds up the training
 
 To summarize, in this project, we implemented VGG16 and ResNet50 for car detection for now, and we will complete the baseline model of road lane and vehicle speed detection in the future and evaluate their performance through standard evaluation metric for objection detection, the mean Average Precision (mAP). And for more information about code, our baseline model architecture, hyper-parameters, and baseline model result, please see GitHub.
 
-### Baseline Model Architecture 
+### Baseline Model Architecture and Code
 
 Please see Baseline_resnet50.txt and Baseline_vgg16.txt file for more information about model architecture and model hyper-parameters
 
+baseline_model.py contains our code about data preprocessing for our first experiment on the car dataset about car detection.
 ### Intermediate conclusion
 Currently, we’ve built a basic model for vehicle detection. Firstly, we’ve done preliminary data preprocessing. The data are from the kaggle competition of ‘PASCAL VOC 2007’ data, which has images and text files containing the names of images belonging to this category. So we extract images file names in the car category text file and connect them to the images and use torch to transform the jpg files. Then we use resnet 152 and vgg 16 as our baseline models. We’ve chosen these models because vgg and resnet are commonly used in object detection.
 The results were not promising, with little improvement in accuracy within several epochs of training. And we figured one of the problems is that we have extracted very few categories, which may not make much difference for this dataset. For this reason, we plan to use all of the categories and detect more objects in the images. We can see the trend changes in the folowing two figures.
@@ -37,5 +38,4 @@ Figure. 1 Training accuracy ResNet50 Trend
 
 Figure. 1 Val accuracy ResNet50 Trend
 
-### Code
-baseline_model.py contains our code about data preprocessing for our first experiment on the car dataset about car detection.
+
