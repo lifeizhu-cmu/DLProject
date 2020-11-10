@@ -23,7 +23,7 @@ To summarize, in this project, we implemented VGG16 and ResNet50 for car detecti
 
 ### Baseline Model Architecture and Code
 
-Please see Baseline_resnet50.txt and Baseline_vgg16.txt file for more information about model architecture and model hyper-parameters
+Please see Baseline_resnet50.txt and Baseline_vgg16.txt file for more information about model architecture and model hyper-parameters.
 
 baseline_model.py contains our code about data preprocessing for our first experiment on the car dataset about car detection.
 ### Intermediate conclusion
