@@ -25,5 +25,9 @@ To summarize, in this project, we implemented VGG16 and ResNet50 for car detecti
 ![](pics/Train_accu_ResNet50.jpg)
 
 Figure. 1 Training accuracy ResNet50 Trend
+
+![](pics/Val_acc_Resnet50.jpg)
+
+Figure. 1 Val accuracy ResNet50 Trend
 ### Intermediate conclusion
 
