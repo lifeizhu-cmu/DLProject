@@ -28,6 +28,7 @@ Please see Baseline_resnet50.txt and Baseline_vgg16.txt file for more informatio
 baseline_model.py contains our code about data preprocessing for our first experiment on the car dataset about car detection.
 ### Intermediate conclusion
 Currently, we’ve built a basic model for vehicle detection. Firstly, we’ve done preliminary data preprocessing. The data are from the kaggle competition of ‘PASCAL VOC 2007’ data, which has images and text files containing the names of images belonging to this category. So we extract images file names in the car category text file and connect them to the images and use torch to transform the jpg files. Then we use resnet 152 and vgg 16 as our baseline models. We’ve chosen these models because vgg and resnet are commonly used in object detection.
+
 The results were not promising, with little improvement in accuracy within several epochs of training. And we figured one of the problems is that we have extracted very few categories, which may not make much difference for this dataset. For this reason, we plan to use all of the categories and detect more objects in the images. We can see the trend changes in the folowing two figures.
 
 ![](pics/Train_accu_ResNet50.jpg)
