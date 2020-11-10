@@ -1,1 +1,1 @@
-https://github.com/lifeizhu-cmu/DLProject/wiki/README.md
+Vehicle,  vehicle speed and road lane detection using CNN for automated vehicles
