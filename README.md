@@ -36,3 +36,6 @@ Figure. 1 Training accuracy ResNet50 Trend
 ![](pics/Val_acc_Resnet50.jpg)
 
 Figure. 1 Val accuracy ResNet50 Trend
+
+### Code
+baseline_model.py contains our code about data preprocessing for our first experiment on the car dataset about car detection.
