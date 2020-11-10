@@ -20,3 +20,8 @@ To reduce the number of training parameters and thus decrease training time, res
 Finally, residual networks use batch normalization, which speeds up the training of deep networks by normalizing the distribution of individual layers’ inputs. Batch normalization had not been discovered at the time of VGG16’s development. The combination of these techniques allow for effective training of residual networks hundreds of layers deep, achieving superior image recognition performance to VGG networks on Imagenet. Given the superior performance of residual networks in image recognition, they must be learning better, higher level features in the convolutional layers.
 
 To summarize, in this project, we implemented VGG16 and ResNet50 for car detection for now, and we will complete the baseline model of road lane and vehicle speed detection in the future and evaluate their performance through standard evaluation metric for objection detection, the mean Average Precision (mAP). And for more information about code, our baseline model architecture, hyper-parameters, and baseline model result, please see GitHub.
+
+### Baselin Model Architecture 
+
+### Intermediate conclusion
+
