@@ -23,7 +23,7 @@ To summarize, in this project, we implemented VGG16 and ResNet50 for car detecti
 
 ### Baseline Model Architecture 
 
-Please see three .txt file for more information about model architecture and model hyper-parameters
+Please see Baseline_resnet50.txt and Baseline_vgg16.txt file for more information about model architecture and model hyper-parameters
 
 ### Intermediate conclusion
 Currently, we’ve built a basic model for vehicle detection. Firstly, we’ve done preliminary data preprocessing. The data are from the kaggle competition of ‘PASCAL VOC 2007’ data, which has images and text files containing the names of images belonging to this category. So we extract images file names in the car category text file and connect them to the images and use torch to transform the jpg files. Then we use resnet 152 and vgg 16 as our baseline models. We’ve chosen these models because vgg and resnet are commonly used in object detection.
