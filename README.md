@@ -21,7 +21,7 @@ Finally, residual networks use batch normalization, which speeds up the training
 
 To summarize, in this project, we implemented VGG16 and ResNet50 for car detection for now, and we will complete the baseline model of road lane and vehicle speed detection in the future and evaluate their performance through standard evaluation metric for objection detection, the mean Average Precision (mAP). And for more information about code, our baseline model architecture, hyper-parameters, and baseline model result, please see GitHub.
 
-### Baselin Model Architecture 
+### Baseline Model Architecture 
 
 ### Intermediate conclusion
 
