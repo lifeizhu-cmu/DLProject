@@ -7,13 +7,13 @@ import time
 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-def visualize_results(df_acc, df_iou, class_name):
+def visualize_results(df, class_name):
     '''
     Saving and showing graph
     '''
-    val_accuracies = df_acc["Val"].to_numpy()
-    train_accuracies = df_acc["Train"].to_numpy()
-    IOU_all = df_iou.to_numpy().T
+    val_accuracies = df["Val"].to_numpy()
+    train_accuracies = df["Train"].to_numpy()
+    IOU_all = df[*class_name].to_numpy().T
     try:
         plt.plot([i+1 for i in range(len(train_accuracies))], train_accuracies, label="train")
         plt.plot([i+1 for i in range(len(val_accuracies))], val_accuracies, label="validation")

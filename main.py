@@ -42,8 +42,7 @@ def main():
     frame_rate = test_inf_speed(model, test_set, test_dataloader)
     print("Frame rate: {:.2f} FPS (frame per second)".format(frame_rate))
 
-    df_acc = pd.DataFrame(columns = ["Train","Val"])
-    df_iou = pd.DataFrame(columns = class_name)
+    df = pd.DataFrame(columns = class_name+["Train","Val"])
 
     model.train()
     for epoch in range(num_epochs):
@@ -58,8 +57,7 @@ def main():
         print('Train Loss: {:.4f}\tTrain Accuracy: {:.4f}\tVal Loss: {:.4f}\tVal Accuracy: {:.4f}'.
             format(train_loss, train_acc, val_loss, val_acc))
 
-        df_acc.loc[len(df_acc.index)] = [train_acc, val_acc]
-        df_iou.loc[len(df_iou.index)] = val_iou
+        df.loc[len(df.index)] = val_iou+ [train_acc, val_acc]
 
         print('Val IOU:')
         for i in range(len(class_index)):
@@ -68,10 +66,10 @@ def main():
                 print()
         print('mIOU: {:.4f}'.format(np.mean(val_iou)))
 
-    df_iou.to_csv("iou.csv", header=True, index=False, columns=class_name)
-    df_acc.to_csv("acc.csv", header=True, index=False, columns=["Train","Val"])
+    df.to_csv("iou.csv", header=True, index=False, columns=class_name)
+    df.to_csv("acc.csv", header=True, index=False, columns=["Train","Val"])
 
-    visualize_results(df_acc, df_iou, class_name)
+    visualize_results(df, class_name)
     test(model, test_dataloader, class_map)
 
     torch.save({
