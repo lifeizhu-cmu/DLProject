@@ -8,10 +8,11 @@ class IOULoss(nn.Module):
     def __call__(self, *args):
         return self.forward(*args)
 
-    def forward(self, predicted, target, smooth=1):
+    def forward(self, predicted, target, smooth=1e-3):
         y_pred = torch.flatten(predicted)
         y_true = torch.flatten(target)
         
         intersection = torch.sum(y_true * y_pred)
+        union = torch.sum(y_true) + torch.sum(y_pred) - intersection
         
-        return -2*(intersection + smooth) / (torch.sum(y_true) + torch.sum(y_pred) + smooth)
+        return -(intersection + 2 * smooth) / (union + smooth)
