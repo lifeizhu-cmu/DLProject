@@ -22,5 +22,5 @@ def build_model(model_name, n_class=32):
         encoder = models.FCNs.VGGNet(batch_norm=True)
         return FCN8s(encoder, n_class)
     elif model_name == 'DAG':
-        vgg_model = models.DAG.VGGNet(requires_grad=True)
+        vgg_model = models.DAG.VGGNet(pretrained=False, requires_grad=True)
         return FCNs(vgg_model, n_class)
