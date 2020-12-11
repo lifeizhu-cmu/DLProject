@@ -30,7 +30,7 @@ def main():
     test_set = ImageDataset(df_test)
     test_dataloader = DataLoader(test_set, batch_size=batch_size, shuffle=False, num_workers=8)
 
-    model = build_model('UNet_ConvTranspose2d')
+    model = build_model('UNet')
     model.apply(init_weights)
     model.to(DEVICE)
 

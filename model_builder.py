@@ -14,7 +14,7 @@ def init_weights(m):
 def build_model(model_name, n_class=32):
     if model_name == 'Baseline':
         return Baseline(n_class)
-    elif model_name == 'UNet_ConvTranspose2d':
+    elif model_name == 'UNet':
         return UNet_ConvTranspose2d(n_class)
     elif model_name == 'UNet_Upsample':
         return UNet_Upsample(n_class)
