@@ -9,8 +9,8 @@ import random
 
 def load_data():
     # train data path
-    image_dir_l = '/CamVid/train_labels/'
-    image_dir = '/CamVid/train/'
+    image_dir_l = '/content/camvid/CamVid/train_labels/'
+    image_dir = '/content/camvid/CamVid/train/'
 
     images = [(image_dir+f) for f in listdir(image_dir) if isfile(join(image_dir, f))]
     masks = [(image_dir_l+f) for f in listdir(image_dir_l) if isfile(join(image_dir_l, f))]
@@ -51,7 +51,7 @@ def load_data():
 
 
 def form_class_map(all_class=False):
-    class_map_df = pd.read_csv('/CamVid/class_dict.csv')
+    class_map_df = pd.read_csv('/content/camvid/CamVid/class_dict.csv')
     class_map = []
     class_index = []
     class_name = []
