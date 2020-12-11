@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
+import time
 
 from model_builder import init_weights, build_model
 from loss import IOULoss
@@ -41,9 +42,8 @@ def main():
     frame_rate = test_inf_speed(model, test_set, test_dataloader)
     print("Frame rate: {:.2f} FPS (frame per second)".format(frame_rate))
 
-    val_accuracies = []
-    train_accuracies = []
-    IOUs = [[] for _ in class_index]
+    df_acc = pd.DataFrame(columns = ["Train","Val"])
+    df_iou = pd.DataFrame(columns = class_name)
 
     model.train()
     for epoch in range(num_epochs):
@@ -58,30 +58,26 @@ def main():
         print('Train Loss: {:.4f}\tTrain Accuracy: {:.4f}\tVal Loss: {:.4f}\tVal Accuracy: {:.4f}'.
             format(train_loss, train_acc, val_loss, val_acc))
 
-        val_accuracies.append(val_acc)
-        train_accuracies.append(train_acc)
+        df_acc.loc[len(df_acc.index)] = [train_acc, val_acc]
+        df_iou.loc[len(df_iou.index)] = val_iou
 
         print('Val IOU:')
         for i in range(len(class_index)):
             print('{}: {:.4f}\t'.format(class_name[i], val_iou[i]), end='')
             if i % 6 == 5 or i == len(class_index)-1:
                 print()
-            IOUs[i].append(val_iou[i])
+        print('mIOU: {:.4f}'.format(np.mean(val_iou)))
 
-
-    df_iou = pd.DataFrame(np.array(IOUs).transpose(1,0), columns=class_name)
     df_iou.to_csv("iou.csv", header=True, index=False, columns=class_name)
-
-    df_acc = pd.DataFrame(np.array([train_accuracies, val_accuracies]).transpose(1,0), columns=["Train","Val"])
     df_acc.to_csv("acc.csv", header=True, index=False, columns=["Train","Val"])
 
-    visualize_results(val_accuracies, train_accuracies, IOUs, class_name)
+    visualize_results(df_acc, df_iou, class_name)
     test(model, test_dataloader, class_map)
 
     torch.save({
         'model_state_dict': model.state_dict(),
         'optimizer_state_dict': optimizer.state_dict(),
-    }, "Model_"+str(epoch))
+    }, "Model_"+str(num_epochs))
 
 
 if __name__ == '__main__':
