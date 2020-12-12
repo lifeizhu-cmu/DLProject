@@ -107,7 +107,7 @@ def test(model, test_loader, class_map):
             img_true_pred = cv2.vconcat([img_pred, img_true])
             images_true_pred.append(img_true_pred)
 
-            img_original_pred = cv2.vconcat([img_pred, img_true])
+            img_original_pred = cv2.vconcat([img_pred, img])
             images_original_pred.append(img_original_pred)
 
             plt.figure(figsize=(8,3))
