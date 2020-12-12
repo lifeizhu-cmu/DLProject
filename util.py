@@ -13,7 +13,7 @@ def visualize_results(df, class_name):
     '''
     val_accuracies = df["Val"].to_numpy()
     train_accuracies = df["Train"].to_numpy()
-    IOU_all = df[*class_name].to_numpy().T
+    IOU_all = df[class_name].to_numpy().T
     try:
         plt.plot([i+1 for i in range(len(train_accuracies))], train_accuracies, label="train")
         plt.plot([i+1 for i in range(len(val_accuracies))], val_accuracies, label="validation")
