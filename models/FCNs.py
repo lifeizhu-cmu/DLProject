@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 from torchvision.models.vgg import VGG
 
+# Learned from https://github.com/pochih/FCN-pytorch
+
 cfg = {
     'vgg11': [64, 'M', 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],
     'vgg13': [64, 64, 'M', 128, 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],
