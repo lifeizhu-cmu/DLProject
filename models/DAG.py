@@ -5,7 +5,7 @@ from torchvision.models.vgg import VGG
 from torch.utils.data import Dataset
 import cv2
 import random
-
+# Learned from https://github.com/pochih/FCN-pytorch
 ranges = {
     'vgg11': ((0, 3), (3, 6),  (6, 11),  (11, 16), (16, 21)),
     'vgg13': ((0, 5), (5, 10), (10, 15), (15, 20), (20, 25)),
